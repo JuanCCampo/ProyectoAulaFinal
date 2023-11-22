@@ -1,23 +1,26 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package co.edu.unicolombo.pb.ventanas;
 
 
-import co.edu.unicolombo.pb.entidades.BuscaEmpleo;
+import co.edu.unicolombo.pb.entidades.Empresa;
+
+import co.edu.unicolombo.pb.entidades.UsuarioC;
+import co.edu.unicolombo.pb.entidades.UsuarioEm;
 import co.edu.unicolombo.pb.persistencia.Almacenamiento;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
 
 
-public class VentanaRegistroBuscaEmpleo extends javax.swing.JDialog {
+public class VentanaRegistroUsuario extends javax.swing.JDialog {
   
     
     
   
-    public VentanaRegistroBuscaEmpleo(java.awt.Frame parent, boolean modal) {
+    public VentanaRegistroUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -38,14 +41,17 @@ public class VentanaRegistroBuscaEmpleo extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         campoNombre = new javax.swing.JTextField();
         campoCorreo = new javax.swing.JTextField();
-        campoExperienciaLaboral = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        campoProfesion = new javax.swing.JTextField();
         campoCedula = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         botonRegistrarUsuario = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        campoContraseña = new javax.swing.JPasswordField();
+        campoContrasena = new javax.swing.JPasswordField();
+        jLabel10 = new javax.swing.JLabel();
+        campoExperienciaLaboral = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        campoProfesion = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        campoEdad = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -59,13 +65,9 @@ public class VentanaRegistroBuscaEmpleo extends javax.swing.JDialog {
         jLabel2.setText("Nombre completo:");
 
         jLabel3.setFont(new java.awt.Font("Sitka Display", 0, 20)); // NOI18N
-        jLabel3.setText("Profesion:");
 
         jLabel4.setFont(new java.awt.Font("Sitka Display", 0, 20)); // NOI18N
         jLabel4.setText("Correo:");
-
-        jLabel6.setFont(new java.awt.Font("Sitka Display", 0, 20)); // NOI18N
-        jLabel6.setText("Experiencia laboral:");
 
         jLabel7.setFont(new java.awt.Font("Sitka Display", 0, 20)); // NOI18N
         jLabel7.setText("Cedula:");
@@ -82,54 +84,74 @@ public class VentanaRegistroBuscaEmpleo extends javax.swing.JDialog {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("DATOS PERSONALES ");
 
-        campoContraseña.addActionListener(new java.awt.event.ActionListener() {
+        campoContrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoContraseñaActionPerformed(evt);
+                campoContrasenaActionPerformed(evt);
             }
         });
+
+        jLabel10.setFont(new java.awt.Font("Sitka Display", 0, 20)); // NOI18N
+        jLabel10.setText("Experiencia Laboral:");
+
+        jLabel5.setFont(new java.awt.Font("Sitka Display", 0, 20)); // NOI18N
+        jLabel5.setText("Profesion:");
+
+        jLabel6.setFont(new java.awt.Font("Sitka Display", 0, 20)); // NOI18N
+        jLabel6.setText("Edad:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(33, 33, 33)
-                        .addComponent(campoExperienciaLaboral, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4))
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoNombre)
-                            .addComponent(campoCorreo)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(96, 96, 96)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(campoProfesion)
-                            .addComponent(campoCedula)
-                            .addComponent(campoContraseña))))
-                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(botonRegistrarUsuario)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4))
+                                .addGap(43, 43, 43)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(campoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                                    .addComponent(campoCorreo)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(96, 96, 96)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(campoCedula)
+                                    .addComponent(campoContrasena)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(botonRegistrarUsuario)
+                        .addGap(0, 177, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(campoExperienciaLaboral)
+                            .addComponent(campoProfesion)
+                            .addComponent(campoEdad))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(campoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -140,27 +162,33 @@ public class VentanaRegistroBuscaEmpleo extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(campoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(campoCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jLabel5)
                     .addComponent(campoProfesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(jLabel10)
                     .addComponent(campoExperienciaLaboral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(campoEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                 .addComponent(botonRegistrarUsuario)
                 .addGap(41, 41, 41))
         );
 
         jLabel8.setFont(new java.awt.Font("Sitka Display", 1, 36)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("CANDIDATO");
+        jLabel8.setText("USUARIOS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,12 +197,12 @@ public class VentanaRegistroBuscaEmpleo extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(72, 72, 72)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +211,7 @@ public class VentanaRegistroBuscaEmpleo extends javax.swing.JDialog {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("Registro de candidatos");
@@ -192,47 +220,51 @@ public class VentanaRegistroBuscaEmpleo extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarUsuarioActionPerformed
-
+        //Se registra el desempleado
+        
+        String edad = campoEdad.getText();
         String nombre = campoNombre.getText();
         String cedula = campoCedula.getText();
-        String contrasena = String.valueOf(campoContraseña.getPassword());
+        String contrasena = String.valueOf(campoContrasena.getPassword());
         String correo = campoCorreo.getText();
         String profesion = campoProfesion.getText();
         String experiencia_laboral = campoExperienciaLaboral.getText();
-            if (BuscaEmpleo.buscaEmpleo.containsKey(correo)) {
-                JOptionPane.showMessageDialog(this, "Ya se creo una cuenta con este correo porfavor regrese e inicie sesion");
+        if (UsuarioC.candidato.containsKey(correo)|| Empresa.empresas.containsKey(correo)||UsuarioEm.usuarioEm.containsKey(correo)) {
+           JOptionPane.showMessageDialog(this, "Ya se registro una cuenta o una empresa con este correo...");
                 return;
-            }
+            }else {
             
-            // se crea el desempleado
-    BuscaEmpleo desempleado = new BuscaEmpleo();
-        desempleado.nombre = nombre;
-        desempleado.cedula = cedula;
-        desempleado.correo = correo;
-        desempleado.contrasena = contrasena;
-        desempleado.profesion = profesion;
-        desempleado.experiencia_laboral = experiencia_laboral;
-        BuscaEmpleo.buscaEmpleo.put(correo, desempleado);
-        
+            // se crea el usuaripo
+        UsuarioC candidato = new UsuarioC();
+        candidato.nombre = nombre;
+        candidato.cedula = cedula;
+        candidato.correo = correo;
+        candidato.contrasena = contrasena;
+        candidato.profesion = profesion;
+        candidato.experiencia_laboral = experiencia_laboral;
+        candidato.edad =edad;
+                
+        UsuarioC.candidato.put(correo, candidato);
+        UsuarioC.candidato.put(nombre, candidato);
+            }
+     
         try {
-            Almacenamiento.guardarBE(BuscaEmpleo.buscaEmpleo);
+            Almacenamiento.guardarUC(UsuarioC.candidato);
             JOptionPane.showMessageDialog(this, "Registrado con exito...");
         } catch (IOException error) {
             JOptionPane.showMessageDialog(this, error.getMessage());
-        }
-
-   
-    
-
-     
+        
+       
+        } 
+        dispose();
         
     }//GEN-LAST:event_botonRegistrarUsuarioActionPerformed
 
-    
-    private void campoContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoContraseñaActionPerformed
+    private void campoContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoContrasenaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoContraseñaActionPerformed
+    }//GEN-LAST:event_campoContrasenaActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
@@ -250,14 +282,18 @@ public class VentanaRegistroBuscaEmpleo extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistroBuscaEmpleo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistroBuscaEmpleo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistroBuscaEmpleo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistroBuscaEmpleo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -266,7 +302,7 @@ public class VentanaRegistroBuscaEmpleo extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                VentanaRegistroBuscaEmpleo dialog = new VentanaRegistroBuscaEmpleo(new javax.swing.JFrame(), true);
+                VentanaRegistroUsuario dialog = new VentanaRegistroUsuario(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -280,16 +316,19 @@ public class VentanaRegistroBuscaEmpleo extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegistrarUsuario;
-    private javax.swing.JTextField campoCedula;
-    private javax.swing.JPasswordField campoContraseña;
-    private javax.swing.JTextField campoCorreo;
-    private javax.swing.JTextField campoExperienciaLaboral;
-    private javax.swing.JTextField campoNombre;
-    private javax.swing.JTextField campoProfesion;
+    public static javax.swing.JTextField campoCedula;
+    private javax.swing.JPasswordField campoContrasena;
+    public static javax.swing.JTextField campoCorreo;
+    private javax.swing.JTextField campoEdad;
+    public static javax.swing.JTextField campoExperienciaLaboral;
+    public static javax.swing.JTextField campoNombre;
+    public static javax.swing.JTextField campoProfesion;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
